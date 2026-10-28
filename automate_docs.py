@@ -17,17 +17,7 @@ def build_docs(folder_path):
     status = "ok"
     output_path = f"{folder_path}-docs"
     os.makedirs(output_path, exist_ok=True)
-
-    result = subprocess.run(
-        [
-            sys.executable,
-            "-m", "pdoc",
-            "-o", output_path,
-            folder_path
-        ],
-        capture_output=True,
-        text=True
-    )
+    result = subprocess.run([sys.executable,"-m", "pdoc","-o", output_path,folder_path], capture_output=True, text=True)
     return {"status":status,"output_path":output_path}
 
 
